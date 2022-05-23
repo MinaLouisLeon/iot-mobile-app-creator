@@ -38,12 +38,12 @@ const ContentContainer = styled.div`
   justify-content: center;
 `;
 
-const CustomButton = styledMUI(Button)`
-  background-color: red;
-  &:hover {
-    background-color : green;
-  }
-`;
+// const CustomButton = styledMUI(Button)`
+//   background-color: red;
+//   &:hover {
+//     background-color : green;
+//   }
+// `;
 
 const MobileDevScreenComp = () => {
   const dispatch = useDispatch(null);
@@ -103,6 +103,8 @@ const MobileDevScreenComp = () => {
               className="layout"
               layouts={gridLayouts}
               width={360}
+              // breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
+              // cols={{ lg: 3, md: 3, sm: 3, xs: 2, xxs: 2 }}
               rowHeight={35}
               verticalCompact={false}
               autoSize={true}
@@ -111,19 +113,6 @@ const MobileDevScreenComp = () => {
               }}
             >
               {Object.keys(buttons).map((index) => {
-                {
-                  /* return (
-                  <CustomButton
-                    variant="contained"
-                    key={buttons[index].key}
-                    onContextMenu={(e) =>
-                      handleContextMenu(e, buttons[index].key)
-                    }
-                  >
-                    {buttons[index].name}
-                  </CustomButton>
-                ); */
-                }
                 return (
                   <IonButton
                     color={buttons[index].color}

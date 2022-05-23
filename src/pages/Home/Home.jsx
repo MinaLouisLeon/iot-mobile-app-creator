@@ -13,6 +13,7 @@ import {
   import LoginComp from "../../components/LoginComp/LoginComp";
   import DevelopmentComp from '../../components/DevelopmentComp/DevelopmentComp';
   import MobileScreenComp from '../../components/MobileScreenComp/MobileScreenComp';
+  import MobileScreenContentComp from "../../components/MobileScreenContentComp/MobileScreenContentComp";
   import { useState } from "react";
   const Home = () => {
     const [isSignedInValue, setIsSignedInValue] = useState(false);
@@ -46,7 +47,8 @@ import {
             </IonContent>
           </IonPopover>
           <DevelopmentComp>
-            <MobileScreenComp />
+            {/* <MobileScreenComp /> */}
+            <MobileScreenContentComp/>
           </DevelopmentComp>
         </IonContent>
       </IonPage>

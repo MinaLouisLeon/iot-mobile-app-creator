@@ -6,12 +6,12 @@ const MainAppSideMenu = () => {
     const gridItemsSlice = useSelector((state) => state.gridItemsSlice);
     const handleExport = async () => {
         if(uid !== ""){
-            let res = await exportApp(uid,"AppData",gridItemsSlice);
+            let res = await exportApp(uid,gridItemsSlice);
         if(res){
             console.log("done")
         }else{
             console.log("failed")
-        }
+        }   
         }else{
             console.log("need to login")
         }
