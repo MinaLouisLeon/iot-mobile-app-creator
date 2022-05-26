@@ -4,7 +4,7 @@ import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
-import { setUserInfo } from "../../Slices/userInfoSlice";
+import { setUserInfo ,setIsSignedInValue} from "../../Slices/userInfoSlice";
 import { IonButton } from "@ionic/react";
 const LoginContainer = styled.div`
   margin: 20px;
@@ -21,7 +21,7 @@ const uiConfig = {
   },
 };
 
-const LoginComp = ({ setIsSignedInValue,setIsOpen }) => {
+const LoginComp = ({setIsOpen }) => {
   const dispatch = useDispatch(null);
   const [isSignedIn, setIsSignedIn] = useState(false); // Local signed-in state.
   // Listen to the Firebase Auth state and set the local state.
@@ -32,7 +32,7 @@ const LoginComp = ({ setIsSignedInValue,setIsOpen }) => {
         dispatch(setUserInfo(user));
 
         setIsSignedIn(!!user);
-        setIsSignedInValue(!!user);
+        dispatch(setIsSignedInValue(!!user));
       });
     return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
   }, []);
@@ -57,7 +57,7 @@ const LoginComp = ({ setIsSignedInValue,setIsOpen }) => {
       <IonButton size="small" color="danger" onClick={() => {
         firebase.auth().signOut();
         setIsOpen(false);
-        setIsSignedInValue(false);
+        dispatch(setIsSignedInValue(false));
       }}>
         Logout
       </IonButton>

@@ -8,6 +8,7 @@ const initialState = {
     photoURL: "",
     phoneNumber: "",
   },
+  isSignedInValue : false,
 };
 
 export const userInfoSlice = createSlice({
@@ -21,8 +22,11 @@ export const userInfoSlice = createSlice({
       state.userInfo.photoURL = action.payload.photoURL;
       state.userInfo.phoneNumber = action.payload.phoneNumber;
     },
+    setIsSignedInValue:(state,action)=>{
+      state.isSignedInValue = action.payload
+    },
   },
 });
 
-export const { setUserInfo } = userInfoSlice.actions;
+export const { setUserInfo ,setIsSignedInValue} = userInfoSlice.actions;
 export default userInfoSlice.reducer;

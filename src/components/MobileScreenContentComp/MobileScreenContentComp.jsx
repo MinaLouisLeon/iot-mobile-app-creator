@@ -32,7 +32,7 @@ const ContentContainer = styled.div`
 const GridContainer = styled.div`
   overflow: auto;
   height: 100%;
-  width: ${(props) => ((props.widthValue).toString() + "px")};
+  width: ${(props) => props.widthValue.toString() + "px"};
 `;
 
 const MobileScreenContentComp = () => {
@@ -103,7 +103,13 @@ const MobileScreenContentComp = () => {
                 >
                   {Object.keys(buttons).map((index) => {
                     return (
-                      <IonButton key={buttons[index].key}>
+                      <IonButton
+                        onContextMenu={(event) =>
+                          handleContextMenu(event, buttons[index].key)
+                        }
+                        key={buttons[index].key}
+                        color={buttons[index].color}
+                      >
                         {buttons[index].name}
                       </IonButton>
                     );

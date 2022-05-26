@@ -38,6 +38,20 @@ export const gridItemsSlice = createSlice({
       });
       state.gridLayouts.push(action.payload.layout);
     },
+    setButtonColor:(state,action) => {
+      state.buttons.map((button,index) => {
+        if(button.key === action.payload.key){
+          state.buttons[index].color = action.payload.color;
+        }
+      })
+    },
+    setButtonProp:(state,action) => {
+      state.buttons.map((button,index) => {
+        if(button.key === action.payload.key){
+          state.buttons[index].name = action.payload.name;
+        }
+      })
+    },
   },
 });
 
@@ -46,7 +60,9 @@ export const {
   addButtonToLayout,
   setIsHeaderEnabled,
   setHeaderMode,
-  setHeaderTitle
+  setHeaderTitle,
+  setButtonColor,
+  setButtonProp
 } = gridItemsSlice.actions;
 
 export default gridItemsSlice.reducer;

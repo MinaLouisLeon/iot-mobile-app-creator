@@ -2,8 +2,8 @@ import { IonButton, IonInput, IonItem, IonItemDivider, IonLabel, IonList, IonSel
 import styled from "styled-components";
 import { useSelector,useDispatch } from "react-redux";
 import { useState } from "react";
-import {setHeaderMode,setIsHeaderEnabled,setHeaderTitle} from '../../../Slices/gridItemsSlice';
 import ButtonProperties from "./ItemsProperties/ButtonProperties";
+import HeaderProperties from "./ItemsProperties/HeaderProperties";
 const ListContainer = styled.div`
     margin-top: 10px;
   `;
@@ -11,29 +11,13 @@ const ListContainer = styled.div`
 const PropertiesViewComp = () => {
   const dispatch = useDispatch(null);
   const propertiesItemKey = useSelector((state) => state.creatorViewSlice.propertiesItemKey);
-  const headerMode = useSelector((state) => state.gridItemsSlice.headerMode);
-  const [headerText , setHeaderText] = useState("");
+
+  
   const handleView = () => {
-    let key = propertiesItemKey.replace(/[0-9]/g, '');
-    switch(key){
+    let keyName = propertiesItemKey.replace(/[0-9]/g, '');
+    switch(keyName){
       case "Header" :
-        return(<>
-          <IonItemDivider mode="md">Header</IonItemDivider>
-          <IonItem lines="full">
-            <IonLabel>
-              Title :
-            </IonLabel>
-            <IonInput 
-              value={headerText}
-              placeholder="Header Text Value"
-              type="text"
-              onIonChange={(e) => setHeaderText(e.detail.value)}
-            />
-            <IonButton slot="end"
-              onClick={() => dispatch(setHeaderTitle(headerText))}
-            >save</IonButton>
-          </IonItem>
-        </>)
+        return(<HeaderProperties />)
         case "btn" :
           return(<ButtonProperties/>)
       default :

@@ -1,7 +1,7 @@
 import { IonApp, setupIonicReact } from "@ionic/react";
 import { app } from "./Firebase/FirebaseConfig.js";
 
-
+import 'tachyons'
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
 
@@ -19,14 +19,12 @@ import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/display.css";
 
 /* Pages */
-import Home from "./pages/Home/Home";
-// import AppPage from './pages/AppPage/AppPage';
+import MainPage from './pages/NavPage/MainPage';
 setupIonicReact();
 
 const App = () => (
   <IonApp>
-    <Home />
-    {/* <AppPage /> */}
+    <MainPage/>
   </IonApp>
 );
 

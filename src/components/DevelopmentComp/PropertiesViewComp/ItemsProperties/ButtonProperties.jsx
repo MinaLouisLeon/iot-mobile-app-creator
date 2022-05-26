@@ -1,16 +1,10 @@
-import { IonItemDivider, IonLabel, IonSelect, IonSelectOption,IonItem } from '@ionic/react'
-import { useSelector , useDispatch } from 'react-redux'
+import { IonItemDivider } from "@ionic/react";
+import { useSelector , useDispatch } from "react-redux";
 const ButtonProperties = () => {
+  const dispatch = useDispatch(null);
   return (
     <>
-        <IonItemDivider mode='md'>Button Properties</IonItemDivider>
-        <IonItem lines='full'>
-            <IonLabel>Color :</IonLabel>
-            <IonSelect value="primary" interface='popover' mode="ios">
-              <IonSelectOption value="primary">Primary</IonSelectOption>
-              <IonSelectOption  value="dager">Danger</IonSelectOption>
-            </IonSelect>
-        </IonItem>
+      <IonItemDivider mode="md">Button</IonItemDivider>
     </>
   )
 }
