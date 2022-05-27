@@ -26,7 +26,7 @@ import {
             </IonContent>
           </IonPopover>
           <DevelopmentComp>
-            {/* <MobileScreenComp /> */}
+          {/* mobile screen content */}
             <MobileScreenContentComp/>
           </DevelopmentComp>
         </IonContent>

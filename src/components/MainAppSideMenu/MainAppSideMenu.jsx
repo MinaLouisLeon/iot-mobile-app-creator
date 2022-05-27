@@ -42,17 +42,18 @@ const MainAppSideMenu = () => {
             <IonItem>
             New App
             </IonItem>
-            <IonItem button onClick={() => dispatch(setAppMode("CreatorPage"))}>
+            {/* TODO add back to creator view */}
+            {/* <IonItem button onClick={() => dispatch(setAppMode("CreatorPage"))}>
               Back to Creator View
-            </IonItem>
+            </IonItem> */}
           </>
         )
       default:
         return (
           <>
-            <IonItem>New App</IonItem>
+            {/* <IonItem>New App</IonItem>
             <IonItem>Open App</IonItem>
-            <IonItem>Save App</IonItem>
+            <IonItem>Save App</IonItem> */}
             <IonItem button color="success" onClick={() => handleExport()}>
               Create App QR Code
             </IonItem>

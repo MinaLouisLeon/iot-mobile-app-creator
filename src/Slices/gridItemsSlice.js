@@ -49,6 +49,7 @@ export const gridItemsSlice = createSlice({
       state.buttons.map((button,index) => {
         if(button.key === action.payload.key){
           state.buttons[index].name = action.payload.name;
+          state.buttons[index].color = action.payload.color;
         }
       })
     },

@@ -101,6 +101,9 @@ export const creatorViewSlice = createSlice({
       }
       state.propertiesItemKey = action.payload;
     },
+    setPropertiesItemKey:(state,action) => {
+      state.propertiesItemKey = action.payload;
+    },
     toggleControlOptions:(state) => {
       if(state.isControlOptionsOpen){
         state.isControlOptionsOpen = false;
@@ -145,6 +148,7 @@ export const {
   ToggleIsControlOpen,
   ToggleIsPropertiesOpen,
   setOpenProperties,
+  setPropertiesItemKey,
   toggleControlOptions,
   toggleControlItems,
   toggleControlScreens,

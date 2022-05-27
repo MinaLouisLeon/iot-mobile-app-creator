@@ -19,7 +19,7 @@ const PropertiesViewComp = () => {
       case "Header" :
         return(<HeaderProperties />)
         case "btn" :
-          return(<ButtonProperties/>)
+          return(<ButtonProperties buttonKey={propertiesItemKey}/>)
       default :
         return(<></>)
     }
