@@ -8,6 +8,8 @@ const initialState = {
   headerTitle: "Header",
   buttons: [],
   buttonsCounter: 0,
+  displays : [],
+  displaysCounter : 0,
 };
 
 export const gridItemsSlice = createSlice({
@@ -38,6 +40,14 @@ export const gridItemsSlice = createSlice({
       });
       state.gridLayouts.push(action.payload.layout);
     },
+    addDisplayToLayout:(state,action)=>{
+      state.displaysCounter = state.displaysCounter + 1;
+      state.displays.push({
+        header : action.payload.header,
+        key : action.payload.layout.i,
+      });
+      state.gridLayouts.push(action.payload.layout);
+    },
     setButtonColor:(state,action) => {
       state.buttons.map((button,index) => {
         if(button.key === action.payload.key){
@@ -53,17 +63,26 @@ export const gridItemsSlice = createSlice({
         }
       })
     },
+    setDisplayProp:(state,action) => {
+      state.displays.map((display,index) => {
+        if(display.key === action.payload.key){
+          state.displays[index].header = action.payload.header;
+        }
+      })
+    },
   },
 });
 
 export const {
   setGridLayouts,
   addButtonToLayout,
+  addDisplayToLayout,
   setIsHeaderEnabled,
   setHeaderMode,
   setHeaderTitle,
   setButtonColor,
-  setButtonProp
+  setButtonProp,
+  setDisplayProp
 } = gridItemsSlice.actions;
 
 export default gridItemsSlice.reducer;

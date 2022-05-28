@@ -41,6 +41,7 @@ const MobileScreenContentComp = () => {
   const [contextMenuKey, setContextMenuKey] = useState(null);
   const gridLayouts = useSelector((state) => state.gridItemsSlice.gridLayouts);
   const buttons = useSelector((state) => state.gridItemsSlice.buttons);
+  const displays = useSelector((state) => state.gridItemsSlice.displays);
   const isHeaderEnabled = useSelector(
     (state) => state.gridItemsSlice.isHeaderEnabled
   );
@@ -93,7 +94,7 @@ const MobileScreenContentComp = () => {
                   layouts={gridLayouts}
                   //   width={(size.width) - 30}
                   breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-                  cols={{ lg: 3, md: 3, sm: 3, xs: 3, xxs: 3 }}
+                  cols={{ lg: 5, md: 5, sm: 5, xs: 5, xxs: 5 }}
                   rowHeight={35}
                   compactType="none"
                   autoSize={false}
@@ -112,6 +113,17 @@ const MobileScreenContentComp = () => {
                       >
                         {buttons[index].name}
                       </IonButton>
+                    );
+                  })}
+                  {Object.keys(displays).map((index) => {
+                    return (
+                      <div key={displays[index].key} className="shadow-1 br2 mt2 mb2"
+                        onContextMenu={(event) => 
+                          handleContextMenu(event,displays[index].key)
+                        }
+                      >
+                        <div className="pa1 fw6 f4 tc shadow-1">{displays[index].header}</div>
+                      </div>
                     );
                   })}
                 </ResponsiveGridLayout>

@@ -6,6 +6,10 @@ export const exportApp = async (uid, data) => {
   data.buttons.forEach((element) => {
     buttons.push(element);
   });
+  let displays = [];
+  data.displays.forEach((element) => {
+    displays.push(element);
+  })
   let gridLayouts = [];
   data.gridLayouts.forEach((element) => {
     let tempObj = {};
@@ -30,12 +34,14 @@ export const exportApp = async (uid, data) => {
   try {
     await setDoc(doc(db, "usersAppData", uid), {
       buttons,
+      displays,
       gridLayouts,
       isHeaderEnabled: data.isHeaderEnabled,
       headerTopValue: data.headerTopValue,
       headerMode: data.headerMode,
       headerTitle: data.headerTitle,
       buttonsCounter: data.buttonsCounter,
+      displaysCounter : data.displaysCounter
     });
     return true;
   } catch (error) {

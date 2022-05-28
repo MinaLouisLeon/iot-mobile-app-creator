@@ -17,6 +17,7 @@ import {
 } from "../../../Slices/creatorViewSlice";
 import {
   addButtonToLayout,
+  addDisplayToLayout,
   setIsHeaderEnabled,
 } from "../../../Slices/gridItemsSlice";
 import styled from "styled-components";
@@ -61,6 +62,7 @@ const ControlViewComp = () => {
   );
   const isControlItemsOpen = useSelector((state) => state.creatorViewSlice.isControlItemsOpen);
   const controlItemsHeight = useSelector((state) => state.creatorViewSlice.controlItemsHeight);
+  const displaysCounter = useSelector((state) => state.gridItemsSlice.displaysCounter);
   const handleAddButton = () => {
     let btnKey = "btn" + (buttonsCounter + 1).toString();
     dispatch(
@@ -77,6 +79,20 @@ const ControlViewComp = () => {
       })
     );
   };
+
+  const handleAddDisplay = () => {
+    let displayKey = "display" + (displaysCounter + 1).toString();
+    dispatch(addDisplayToLayout({
+      header : displayKey,
+      layout : {
+        w : 0,
+        h :2,
+        x : 0,
+        y : 0,
+        i : displayKey,
+      }
+    }))
+  }
 
   return (
     <ListContainer>
@@ -130,6 +146,9 @@ const ControlViewComp = () => {
           {/* add button control */}
           <IonItem button onClick={() => handleAddButton()}>
             Add Button
+          </IonItem>
+          <IonItem button onClick={() => handleAddDisplay()}>
+            Add Display
           </IonItem>
         </ItemsContaier>
       </IonList>
